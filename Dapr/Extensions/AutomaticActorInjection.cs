@@ -24,10 +24,9 @@ public static class AutomaticActorInjection
             .ToList()
             .ForEach(
                 implementationType =>
-                    genericMethodInfo?.MakeGenericMethod(implementationType)?.Invoke(
-                        actorRegistrationCollection,
-                        new object?[] { null }
-                    )
+                    genericMethodInfo
+                        ?.MakeGenericMethod(implementationType)
+                        ?.Invoke(actorRegistrationCollection, new object?[] { null })
             );
     }
 }

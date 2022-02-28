@@ -22,8 +22,9 @@ public static class AutomaticDependencyInjectionExtensions
             .SelectMany(x => x.GetTypes())
             .Where(
                 implementationType =>
-                    implementationType.GetCustomAttribute<AutomaticDependencyInjectionAttribute>()?.Lifetime
-                        == serviceLifetime
+                    implementationType
+                        .GetCustomAttribute<AutomaticDependencyInjectionAttribute>()
+                        ?.Lifetime == serviceLifetime
                     && implementationType.IsClass
                     && !implementationType.IsAbstract
             )
