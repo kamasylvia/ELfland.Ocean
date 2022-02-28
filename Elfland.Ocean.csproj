@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Dapr\" />
+    <None Remove="WebAPI\" />
+    <None Remove="Dapr.AspNetCore" />
+    <None Remove="Dapr.Actors.AspNetCore" />
+    <None Remove="Grpc.Net.Client" />
+    <None Remove="Serilog.AspNetCore" />
+    <None Remove="Serilog.Expressions" />
+    <None Remove="System.Linq.Async" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dapr\" />
+    <Folder Include="WebAPI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Dapr.AspNetCore" Version="1.6.0" />
+    <PackageReference Include="Dapr.Actors.AspNetCore" Version="1.6.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.42.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="Serilog.Expressions" Version="3.3.0" />
+    <PackageReference Include="System.Linq.Async" Version="6.0.1" />
+  </ItemGroup>
+</Project>
