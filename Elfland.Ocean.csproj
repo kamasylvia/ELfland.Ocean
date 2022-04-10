@@ -1,29 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Dapr\" />
-    <None Remove="WebAPI\" />
-    <None Remove="Dapr.AspNetCore" />
-    <None Remove="Dapr.Actors.AspNetCore" />
-    <None Remove="Grpc.Net.Client" />
-    <None Remove="Serilog.AspNetCore" />
-    <None Remove="Serilog.Expressions" />
-    <None Remove="System.Linq.Async" />
-    <None Remove="NewId" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dapr\" />
-    <Folder Include="WebAPI\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Dapr.AspNetCore" Version="1.6.0" />
-    <PackageReference Include="Dapr.Actors.AspNetCore" Version="1.6.0" />
-    <PackageReference Include="Grpc.Net.Client" Version="2.44.0" />
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PackageId>Elfland.Ocean</PackageId>
+		<Authors>Kamasylvia</Authors>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="Dapr\" />
+		<None Remove="WebAPI\" />
+		<None Remove="Dapr.AspNetCore" />
+		<None Remove="Dapr.Actors.AspNetCore" />
+		<None Remove="Grpc.Net.Client" />
+		<None Remove="Serilog.AspNetCore" />
+		<None Remove="Serilog.Expressions" />
+		<None Remove="System.Linq.Async" />
+		<None Remove="NewId" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Dapr\" />
+		<Folder Include="WebAPI\" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Dapr.AspNetCore" Version="1.7.0" />
+		<PackageReference Include="Dapr.Actors.AspNetCore" Version="1.7.0" />
+	</ItemGroup>
 </Project>
