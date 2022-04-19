@@ -1,9 +1,27 @@
+using System.Text.Json;
 using Dapr.Actors.Runtime;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Elfland.Ocean.Actors.Extensions;
 
 public static class AutomaticActorInjection
 {
+    public static void AddDaprActors(this IServiceCollection services)
+    {
+        services.AddActors(
+            options =>
+            {
+                options.JsonSerializerOptions = new JsonSerializerOptions()
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    PropertyNameCaseInsensitive = true
+                };
+
+                options.Actors.RegisterActors();
+            }
+        );
+    }
+
     /// <summary>
     /// Registers all actors inherited from Actor type in the collection.
     /// </summary>
