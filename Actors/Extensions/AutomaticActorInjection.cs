@@ -1,6 +1,6 @@
 using Dapr.Actors.Runtime;
 
-namespace Elfland.Dapr.Extensions;
+namespace Elfland.Ocean.Actors.Extensions;
 
 public static class AutomaticActorInjection
 {

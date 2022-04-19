@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
@@ -17,13 +17,16 @@
 		<None Remove="Serilog.Expressions" />
 		<None Remove="System.Linq.Async" />
 		<None Remove="NewId" />
+		<None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+		<None Remove="MediatR.Extensions.Microsoft.DependencyInjection" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Dapr\" />
 		<Folder Include="WebAPI\" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Dapr.AspNetCore" Version="1.7.0" />
-		<PackageReference Include="Dapr.Actors.AspNetCore" Version="1.7.0" />
+	  <PackageReference Include="Dapr.Actors.AspNetCore" Version="1.7.0" />
+	  <PackageReference Include="Dapr.AspNetCore" Version="1.7.0" />
+	  <PackageReference Include="NewId" Version="3.0.3" />
 	</ItemGroup>
 </Project>
