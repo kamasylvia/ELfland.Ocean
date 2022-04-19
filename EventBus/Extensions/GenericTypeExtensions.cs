@@ -8,7 +8,10 @@ public static class GenericTypeExtensions
 
         if (type.IsGenericType)
         {
-            var genericTypes = string.Join(",", type.GetGenericArguments().Select(t => t.Name).ToArray());
+            var genericTypes = string.Join(
+                ",",
+                type.GetGenericArguments().Select(t => t.Name).ToArray()
+            );
             typeName = $"{type.Name.Remove(type.Name.IndexOf('`'))}<{genericTypes}>";
         }
         else
