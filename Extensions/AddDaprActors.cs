@@ -2,9 +2,9 @@ using System.Text.Json;
 using Dapr.Actors.Runtime;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Elfland.Ocean.Actors.Extensions;
+namespace Elfland.Ocean.Extensions;
 
-public static class AutomaticActorInjection
+public static partial class ProgramExtensions
 {
     public static void AddDaprActors(this IServiceCollection services)
     {
