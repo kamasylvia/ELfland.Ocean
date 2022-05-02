@@ -1,3 +1,4 @@
+using System.Reflection;
 using System.Text.Json;
 using Dapr.Actors.Runtime;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,7 +29,9 @@ public static partial class ProgramExtensions
     /// <param name="actorRegistrationCollection">A collection of ActorRegistration instances.</param>
     public static void RegisterActors(this ActorRegistrationCollection actorRegistrationCollection)
     {
-        var genericMethodInfo = actorRegistrationCollection.GetType().GetMethod("RegisterActor");
+        var genericMethodInfo = actorRegistrationCollection
+            .GetType()
+            .GetMethod("RegisterActor", BindingFlags.Public);
 
         AppDomain.CurrentDomain
             .GetAssemblies()
