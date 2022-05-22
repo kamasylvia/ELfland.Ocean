@@ -4,6 +4,6 @@ namespace Elfland.Ocean.EventBus.Abstractions;
 
 public interface IEventBus
 {
-    Task PublishAsync<TIntegrationEvent>(TIntegrationEvent @event)
+    Task PublishAsync<TIntegrationEvent>(TIntegrationEvent @event, string daprPubsubName)
         where TIntegrationEvent : IntegrationEvent;
 }

@@ -7,28 +7,26 @@ namespace Elfland.Ocean.EventBus
 {
     public class DaprEventBus : IEventBus
     {
-        private const string DAPR_PUBSUB_NAME = "pubsub";
-
         private readonly DaprClient _dapr;
         private readonly ILogger _logger;
 
         public DaprEventBus(DaprClient dapr, ILogger<DaprEventBus> logger)
         {
-            _dapr = dapr;
-            _logger = logger;
+            _dapr = dapr ?? throw new ArgumentNullException(nameof(dapr));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public async Task PublishAsync<TIntegrationEvent>(TIntegrationEvent @event)
+        public async Task PublishAsync<TIntegrationEvent>(TIntegrationEvent @event, string daprPubsubName = "pubsub")
             where TIntegrationEvent : IntegrationEvent
         {
             var topicName = @event.GetType().Name;
 
-            _logger.LogInformation($"Publishing event {@event} to {DAPR_PUBSUB_NAME}.{topicName}");
+            _logger.LogInformation($"Publishing event {@event} to {daprPubsubName}.{topicName}");
 
             // We need to make sure that we pass the concrete type to PublishEventAsync,
             // which can be accomplished by casting the event to dynamic. This ensures
             // that all event fields are properly serialized.
-            await _dapr.PublishEventAsync(DAPR_PUBSUB_NAME, topicName, (object)@event);
+            await _dapr.PublishEventAsync(daprPubsubName, topicName, (object)@event);
         }
     }
 }
