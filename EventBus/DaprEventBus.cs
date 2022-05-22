@@ -16,8 +16,10 @@ namespace Elfland.Ocean.EventBus
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public async Task PublishAsync<TIntegrationEvent>(TIntegrationEvent @event, string daprPubsubName = "pubsub")
-            where TIntegrationEvent : IntegrationEvent
+        public async Task PublishAsync<TIntegrationEvent>(
+            TIntegrationEvent @event,
+            string daprPubsubName = "pubsub"
+        ) where TIntegrationEvent : IntegrationEvent
         {
             var topicName = @event.GetType().Name;
 
