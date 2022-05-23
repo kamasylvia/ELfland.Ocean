@@ -7,8 +7,11 @@ namespace Elfland.Ocean.Extensions;
 
 public static partial class ProgramExtensions
 {
-    public static void AddDaprActors(this IServiceCollection services)
-    {
+    /// <summary>
+    /// Registers all actors inherited from Actor type in the assembly to the application.
+    /// </summary>
+    /// <param name="services"></param>
+    public static void AddDaprActors(this IServiceCollection services) =>
         services.AddActors(
             options =>
             {
@@ -21,18 +24,14 @@ public static partial class ProgramExtensions
                 options.Actors.RegisterActors();
             }
         );
-    }
 
     /// <summary>
-    /// Registers all actors inherited from Actor type in the collection.
+    /// Registers all actors inherited from Actor type in the assembly to the application.
     /// </summary>
     /// <param name="actorRegistrationCollection">A collection of ActorRegistration instances.</param>
-    public static void RegisterActors(this ActorRegistrationCollection actorRegistrationCollection)
-    {
-        var genericMethodInfo = actorRegistrationCollection
-            .GetType()
-            .GetMethod("RegisterActor", BindingFlags.Public);
-
+    public static void RegisterActors(
+        this ActorRegistrationCollection actorRegistrationCollection
+    ) =>
         AppDomain.CurrentDomain
             .GetAssemblies()
             .SelectMany(x => x.GetTypes())
@@ -45,9 +44,10 @@ public static partial class ProgramExtensions
             .ToList()
             .ForEach(
                 implementationType =>
-                    genericMethodInfo
+                    actorRegistrationCollection
+                        .GetType()
+                        .GetMethod("RegisterActor", BindingFlags.Public)
                         ?.MakeGenericMethod(implementationType)
                         ?.Invoke(actorRegistrationCollection, new object?[] { null })
             );
-    }
 }
