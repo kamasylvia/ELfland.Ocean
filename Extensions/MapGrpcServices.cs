@@ -12,12 +12,10 @@ public static partial class ProgramExtensions
     /// </summary>
     /// <param name="app"></param>
     public static void MapGrpcServices(this WebApplication app) =>
-        app.UseEndpoints(
-            endpoints =>
-            {
-                endpoints.MapGrpcServices();
-            }
-        );
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapGrpcServices();
+        });
 
     private static void MapGrpcServices(this IEndpointRouteBuilder endpoints) =>
         AppDomain.CurrentDomain

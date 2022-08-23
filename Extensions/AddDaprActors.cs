@@ -12,18 +12,16 @@ public static partial class ProgramExtensions
     /// </summary>
     /// <param name="services"></param>
     public static void AddDaprActors(this IServiceCollection services) =>
-        services.AddActors(
-            options =>
+        services.AddActors(options =>
+        {
+            options.JsonSerializerOptions = new JsonSerializerOptions()
             {
-                options.JsonSerializerOptions = new JsonSerializerOptions()
-                {
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                    PropertyNameCaseInsensitive = true
-                };
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNameCaseInsensitive = true
+            };
 
-                options.Actors.RegisterActors();
-            }
-        );
+            options.Actors.RegisterActors();
+        });
 
     /// <summary>
     /// Registers all actors inherited from Actor type in the assembly to the application.
