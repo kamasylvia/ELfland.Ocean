@@ -18,7 +18,7 @@ namespace Elfland.Ocean.EventBus
 
         public async Task PublishAsync<TIntegrationEvent>(
             TIntegrationEvent @event,
-            string daprPubsubName = "pubsub"
+            string daprPubsubName
         ) where TIntegrationEvent : IntegrationEvent
         {
             var topicName = @event.GetType().Name;
