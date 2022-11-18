@@ -1,32 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<PackageId>Elfland.Ocean</PackageId>
 		<Authors>Kamasylvia</Authors>
 	</PropertyGroup>
 	<ItemGroup>
-		<None Remove="Dapr\"/>
-		<None Remove="WebAPI\"/>
-		<None Remove="Dapr.AspNetCore"/>
-		<None Remove="Dapr.Actors.AspNetCore"/>
-		<None Remove="Grpc.Net.Client"/>
-		<None Remove="Serilog.AspNetCore"/>
-		<None Remove="Serilog.Expressions"/>
-		<None Remove="System.Linq.Async"/>
-		<None Remove="NewId"/>
-		<None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection"/>
-		<None Remove="MediatR.Extensions.Microsoft.DependencyInjection"/>
+		<Folder Include="Dapr\" />
+		<Folder Include="WebAPI\" />
 	</ItemGroup>
 	<ItemGroup>
-		<Folder Include="Dapr\"/>
-		<Folder Include="WebAPI\"/>
-	</ItemGroup>
-	<ItemGroup>
-		<PackageReference Include="Dapr.Actors.AspNetCore" Version="1.7.0"/>
-		<PackageReference Include="Dapr.AspNetCore" Version="1.7.0"/>
-		<PackageReference Include="NewId" Version="3.0.3"/>
+		<PackageReference Include="Dapr.Actors.AspNetCore" Version="1.9.0" />
+		<PackageReference Include="Dapr.AspNetCore" Version="1.9.0" />
+		<PackageReference Include="NewId" Version="3.0.3" />
 	</ItemGroup>
 </Project>
