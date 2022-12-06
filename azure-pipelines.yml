@@ -42,7 +42,6 @@ steps:
   #   displayName: "Format the source code with CSharpier"
 
   - task: CmdLine@2
-    continueOnError: true
     inputs:
       script: |
         git config --global user.email "$(EMAIL)"
